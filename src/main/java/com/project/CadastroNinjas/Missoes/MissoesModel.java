@@ -1,5 +1,6 @@
 package com.project.CadastroNinjas.Missoes;
 
+import com.project.CadastroNinjas.Ninja.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,5 +25,5 @@ public class MissoesModel {
     private DificuldadeMissoes Dificuldade;
 
     @Column(name = "ninja")
-    private MissoesModel ninja;
+    private NinjaModel ninja;
 }

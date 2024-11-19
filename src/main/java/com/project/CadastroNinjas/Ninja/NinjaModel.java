@@ -6,10 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cadastro")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "cadastro")
 public class NinjaModel {
 
     @Id
