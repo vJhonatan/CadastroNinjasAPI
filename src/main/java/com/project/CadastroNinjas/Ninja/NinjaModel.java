@@ -1,5 +1,6 @@
 package com.project.CadastroNinjas.Ninja;
 
+import com.project.CadastroNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,4 +26,8 @@ public class NinjaModel {
 
     @Column(unique = true)
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 }
