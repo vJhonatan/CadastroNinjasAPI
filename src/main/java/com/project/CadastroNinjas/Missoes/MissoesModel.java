@@ -16,9 +16,13 @@ public class MissoesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
-    private Enum<DificuldadeMissoes> Dificuldade;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dificuldade")
+    private DificuldadeMissoes Dificuldade;
 
+    @Column(name = "ninja")
     private MissoesModel ninja;
 }
