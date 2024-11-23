@@ -2,6 +2,8 @@ package com.project.CadastroNinjas.Ninja;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/ninjas")
 
@@ -13,33 +15,28 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    // Criar um ninja
     @PostMapping
-    public String newNinja(){
-        return "ninja criado";
+    public NinjaModel newNinja(@RequestBody NinjaModel ninja){
+        return ninjaService.newNinja(ninja);
     }
 
-    // Listar ninjas
     @GetMapping
-    public String getNinjas(){
-        return "Ninjas";
+    public List<NinjaModel> getNinjas(){
+        return ninjaService.getNinjas();
     }
 
-    // Listar Ninja por Id
     @GetMapping("/{id}")
-    public String getNinjaByid(@PathVariable Long id){
-        return "ninja por id";
+    public NinjaModel getNinjaByid(@PathVariable Long id){
+        return ninjaService.getNinjaById(id);
     }
 
-    // Atualizar Ninja
     @PutMapping("/{id}")
-    public String updateNinja (@PathVariable Long id){
-        return "Ninja atualizado";
+    public NinjaModel updateNinja (@RequestBody NinjaModel ninjaUpdated, @PathVariable Long id){
+        return ninjaService.updateNinja(ninjaUpdated,id);
     }
 
-    // Deletar Ninja
     @DeleteMapping("/{id}")
-    public String deleteNinja(@PathVariable Long id){
-        return "Ninja deletado";
+    public void deleteNinja(@PathVariable Long id){
+        ninjaService.deleteNinja(id);
     }
 }
