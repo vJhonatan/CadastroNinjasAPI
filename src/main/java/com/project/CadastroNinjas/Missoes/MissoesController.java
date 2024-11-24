@@ -1,9 +1,8 @@
 package com.project.CadastroNinjas.Missoes;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/missoes")
@@ -15,30 +14,28 @@ public class MissoesController {
         this.missoesService = missoesService;
     }
 
-    /* TODO: Rota para nova missão */
     @PostMapping
-    public void createMission(){
-
+    public MissoesModel createMission(@RequestBody MissoesModel mission){
+        return missoesService.createMission(mission);
     }
 
-    /* TODO: Rota para listar missões */
     @GetMapping
-    public void getMissions(){
-
+    public List<MissoesModel> getMissions(){
+        return missoesService.getMissions();
     }
 
-    /* TODO: Rota para listar missão por ID */
-    public void getMissionById(){
-
+    @GetMapping("/{id}")
+    public MissoesModel getMissionById(@PathVariable Long id){
+        return missoesService.getMissionById(id);
     }
 
-    /* TODO: Rota para atualizar missão */
-    public void updateMission(){
-
+    @PutMapping("/{id}")
+    public MissoesModel updateMission(@RequestBody MissoesModel missionUpdated, @PathVariable Long id){
+        return missoesService.updateMission(missionUpdated,id);
     }
 
-    /* TODO: Rota para deletar missão */
-    public void deleteMission(){
-
+    @DeleteMapping("/{id}")
+    public void deleteMission(@PathVariable Long id){
+        missoesService.deleteMission(id);
     }
 }
