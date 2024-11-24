@@ -6,12 +6,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/ninjas")
-
 public class NinjaController {
 
     private NinjaService ninjaService;
 
-    public NinjaController(NinjaService ninjaService) {
+    public NinjaController(NinjaService ninjaService){
         this.ninjaService = ninjaService;
     }
 
